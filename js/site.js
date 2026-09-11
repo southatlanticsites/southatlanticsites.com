@@ -32,6 +32,24 @@
   }, 3000);
 })();
 
+// Contact form: posts to the Google Form through a hidden iframe, then shows a confirmation.
+(function () {
+  const form = document.getElementById('contact-form');
+  const sink = document.getElementById('gform-sink');
+  if (!form || !sink) return;
+  let submitted = false;
+  form.addEventListener('submit', () => {
+    submitted = true;
+    const btn = form.querySelector('button');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+  });
+  sink.addEventListener('load', () => {
+    if (!submitted) return;
+    form.innerHTML = '<p class="sent">Thanks. Your message is in. A broker will reply within 24 hours.</p>';
+  });
+})();
+
 // Homepage: featured property cards from js/listings.js (entries with "featured": true).
 (function () {
   const grid = document.getElementById('featured');

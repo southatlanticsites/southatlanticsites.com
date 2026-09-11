@@ -169,16 +169,17 @@
           </form>
         </div>
       </div>
-      <!-- Google Form: once the form exists, this posts to its formResponse URL with the entry IDs filled in. -->
-      <form id="contact-form" onsubmit="event.preventDefault();this.querySelector('button').textContent='Sent';">
+      <!-- Posts straight into the "Tell us about the property or the requirement" Google Form; responses land in its Responses tab. -->
+      <form id="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfqGhfscjJI_dIOWjolvPGGUBf52i4j9V0FefI4mu3lCsIewA/formResponse" method="POST" target="gform-sink">
         <div class="form-row">
-          <label>Name<input type="text" name="name" required></label>
-          <label>Email<input type="email" name="email" required></label>
+          <label>Name<input type="text" name="entry.1529557802" autocomplete="name" required></label>
+          <label>Email<input type="email" name="entry.1486106771" autocomplete="email" required></label>
         </div>
-        <label>Company or property address<input type="text" name="subject"></label>
-        <label>What can we help with?<textarea name="message" required></textarea></label>
+        <label>Company or property address<input type="text" name="entry.296741283" autocomplete="organization"></label>
+        <label>What can we help with?<textarea name="entry.171956780" required></textarea></label>
         <div><button class="btn btn-gold" type="submit">Send message</button></div>
       </form>
+      <iframe name="gform-sink" id="gform-sink" title="Form submission" hidden></iframe>
     </div>
   </div>
 </section>
