@@ -1,0 +1,267 @@
+<title>Available Properties · South Atlantic Sites</title>
+<meta name="description" content="Every South Atlantic Sites listing on one map: land, retail, industrial and ground lease opportunities across the South Atlantic region.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Instrument+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/site.css">
+<style>
+  html,body{height:100%}
+  body{overflow:hidden}
+  .mapapp{display:flex;height:calc(100vh - var(--nav-h));height:calc(100dvh - var(--nav-h))}
+  .side{width:400px;flex-shrink:0;display:flex;flex-direction:column;background:var(--white);border-right:1px solid var(--line);z-index:2}
+  .side-head{padding:22px 24px 16px;border-bottom:1px solid var(--line)}
+  .side-head .eyebrow{color:var(--muted);margin-bottom:8px}
+  .side-head h1{font-size:1.6rem;font-stretch:108%;letter-spacing:-.015em}
+  .side-head .count{margin-top:6px;font-size:.9rem;color:var(--muted)}
+  .side-head .count b{color:var(--navy);font-variant-numeric:tabular-nums}
+  .filters{display:flex;gap:8px;padding:14px 24px;border-bottom:1px solid var(--line)}
+  .pillbtn{font:600 .74rem var(--body);letter-spacing:.1em;text-transform:uppercase;padding:8px 12px;border-radius:3px;border:1.5px solid var(--navy);background:var(--white);color:var(--navy);cursor:pointer}
+  .pillbtn.active{background:var(--navy);color:var(--white)}
+  .pillbtn[data-type="For Sale"].active{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+  .list{flex:1;overflow-y:auto;padding:12px 24px 24px;display:grid;gap:10px;align-content:start}
+  .lcard{border:1px solid var(--line);border-radius:6px;padding:14px 16px;cursor:pointer;background:var(--white);transition:border-color .15s ease}
+  .lcard:hover,.lcard.active{border-color:var(--navy)}
+  .lcard.active{box-shadow:inset 4px 0 0 var(--gold)}
+  .ltype{display:inline-block;font-weight:600;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 8px;border-radius:3px;margin-bottom:8px}
+  .ltype.sale{background:var(--gold);color:var(--navy)}
+  .ltype.lease{background:var(--navy);color:var(--white)}
+  .lname{font-family:var(--display);font-weight:700;font-stretch:104%;font-size:1.05rem;line-height:1.2}
+  .lcity{font-size:.85rem;color:var(--muted);margin-top:2px}
+  .lmeta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-size:.88rem}
+  .lmeta small{display:block;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .lmeta b{font-weight:600;font-variant-numeric:tabular-nums}
+  .lbroker{margin-top:8px;font-size:.8rem;color:var(--muted)}
+  .empty{display:none;color:var(--muted);padding:16px 0;font-size:.95rem}
+  .empty.show{display:block}
+  .mapwrap{flex:1;position:relative;background:var(--gray)}
+  #map{position:absolute;inset:0}
+  .mapnote{position:absolute;left:16px;bottom:16px;z-index:1;background:var(--white);border:1px solid var(--line);border-radius:4px;padding:8px 12px;font-size:.8rem;color:var(--muted);display:none}
+  .mapnote.show{display:block}
+
+  /* Info window content (Google injects it into the page, so page CSS applies) */
+  .iw{font-family:var(--body);color:var(--navy);max-width:300px;padding:4px 2px 2px}
+  .iw .ltype{margin-bottom:8px}
+  .iw-name{font-family:var(--display);font-weight:700;font-stretch:104%;font-size:1.1rem;line-height:1.2}
+  .iw-addr{font-size:.85rem;color:var(--muted);margin:2px 0 10px}
+  .iw-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px;padding-top:10px;border-top:1px solid var(--line)}
+  .iw-grid small{display:block;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .iw-grid b{font-weight:600;font-size:.88rem}
+  .iw-hi{font-size:.86rem;color:var(--navy);margin-top:12px;line-height:1.45}
+  .iw-broker{font-size:.8rem;color:var(--muted);margin-top:10px}
+  .iw-btn{display:inline-block;margin-top:12px;background:var(--gold);color:var(--navy);font-weight:600;font-size:.9rem;text-decoration:none;padding:10px 14px;border-radius:4px}
+  .gm-style .gm-style-iw-c{border-radius:6px;padding:14px 16px!important}
+  .gm-style .gm-style-iw-d{overflow:auto!important}
+
+  @media (max-width:960px){
+    .side{width:340px}
+  }
+  @media (max-width:720px){
+    .mapapp{flex-direction:column}
+    .mapwrap{order:1;flex:0 0 46vh}
+    .side{order:2;width:100%;flex:1;min-height:0;border-right:0;border-top:1px solid var(--line)}
+    .side-head{padding:14px 20px 10px}
+    .side-head h1{font-size:1.3rem}
+    .filters{padding:10px 20px}
+    .list{padding:10px 20px 20px}
+  }
+</style>
+
+<header class="nav wide">
+  <div class="nav-inner">
+    <a class="brand" href="index.html" aria-label="South Atlantic Sites home"><img src="img/sas-lockup.png" alt="South Atlantic Sites"></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html#listings">Listings</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#team">Team</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a class="cta active" href="listings.html">Property map</a></li>
+    </ul>
+  </div>
+</header>
+
+<main class="mapapp">
+  <aside class="side">
+    <div class="side-head">
+      <p class="eyebrow">South Atlantic Sites</p>
+      <h1>Available properties</h1>
+      <p class="count"><b id="vis-count">—</b> active listings</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filter listings">
+      <button class="pillbtn active" data-type="All">All</button>
+      <button class="pillbtn" data-type="For Lease">For lease</button>
+      <button class="pillbtn" data-type="For Sale">For sale</button>
+    </div>
+    <div class="list" id="cards">
+      <p class="empty" id="no-results">No listings match this filter.</p>
+    </div>
+  </aside>
+  <div class="mapwrap">
+    <div id="map" role="region" aria-label="Map of available properties"></div>
+    <p class="mapnote" id="mapnote">The map could not load. Listings are still available in the list.</p>
+  </div>
+</main>
+
+<script src="js/listings.js"></script>
+<script src="js/site.js"></script>
+<script>
+// Google Maps key carried over from the standalone map. Its HTTP-referrer allowlist in Google Cloud
+// must include the site's domains (southatlanticsites.com, www.southatlanticsites.com, and the GitHub preview URL).
+const API_KEY = 'AIzaSyCoqCH6BGDq4K-DDZs1XnWnuSGRAzviS00';
+
+const isSale = (type) => /sale/i.test(type);
+const PIN = { sale: { fill: '#FFCB05', dot: '#00274C' }, lease: { fill: '#00274C', dot: '#FFFFFF' } };
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const typeTag = (type) => `<span class="ltype ${isSale(type) ? 'sale' : 'lease'}">${esc(type)}</span>`;
+
+let map, markers = [], infoWindow, activeFilter = 'All';
+
+// Render the list immediately so it is useful even before (or without) the map.
+LISTINGS.forEach((l, i) => createCard(l, i));
+document.getElementById('vis-count').textContent = LISTINGS.length;
+
+// Load Google Maps.
+(function () {
+  const s = document.createElement('script');
+  s.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&callback=initMap`;
+  s.async = true; s.defer = true;
+  s.onerror = () => document.getElementById('mapnote').classList.add('show');
+  document.head.appendChild(s);
+})();
+
+window.initMap = function () {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: { lat: 35.50, lng: -78.45 },
+    zoom: 8,
+    mapTypeId: 'hybrid',
+    zoomControl: true,
+    mapTypeControl: true,
+    mapTypeControlOptions: { mapTypeIds: ['hybrid', 'roadmap', 'satellite', 'terrain'], position: google.maps.ControlPosition.TOP_RIGHT },
+    streetViewControl: false,
+    fullscreenControl: true,
+  });
+  infoWindow = new google.maps.InfoWindow({ maxWidth: 340 });
+  map.addListener('click', () => { infoWindow.close(); document.querySelectorAll('.lcard').forEach((c) => c.classList.remove('active')); });
+  geocodeAndPlace();
+};
+
+// Listings without stored coordinates are geocoded in the visitor's browser and cached for the session.
+async function geocodeAndPlace() {
+  const geocoder = new google.maps.Geocoder();
+  for (let i = 0; i < LISTINGS.length; i++) {
+    const l = LISTINGS[i];
+    let coords = (l.lat && l.lng) ? { lat: l.lat, lng: l.lng } : null;
+    const query = `${l.address}, ${l.city}`;
+    const cacheKey = 'sas-geo:' + query;
+    if (!coords) { try { const c = sessionStorage.getItem(cacheKey); if (c) coords = JSON.parse(c); } catch (e) {} }
+    if (!coords) {
+      coords = await new Promise((resolve) => {
+        geocoder.geocode({ address: query, region: 'us' }, (results, status) => {
+          if (status === 'OK' && results[0]) { const p = results[0].geometry.location; resolve({ lat: p.lat(), lng: p.lng() }); }
+          else { console.warn('Geocode failed for', query, status); resolve(null); }
+        });
+      });
+      if (coords) { try { sessionStorage.setItem(cacheKey, JSON.stringify(coords)); } catch (e) {} }
+      await new Promise((r) => setTimeout(r, 120));
+    }
+    if (!coords) continue;
+    // Nudge pins that land on identical coordinates (suites in the same building).
+    let bump = 0;
+    for (let j = 0; j < i; j++) { if (LISTINGS[j]._lat && Math.abs(LISTINGS[j]._lat - coords.lat) < 1e-5 && Math.abs(LISTINGS[j]._lng - coords.lng) < 1e-5) bump++; }
+    l._lat = coords.lat; l._lng = coords.lng + bump * 0.00045;
+    createMarker(l, i);
+  }
+}
+
+function pinSVG(type) {
+  const c = isSale(type) ? PIN.sale : PIN.lease;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="42" viewBox="0 0 32 42">
+    <filter id="sh"><feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-opacity=".45"/></filter>
+    <g filter="url(#sh)"><path d="M16 2C9.37 2 4 7.37 4 14c0 9 12 26 12 26S28 23 28 14C28 7.37 22.63 2 16 2z" fill="${c.fill}" stroke="rgba(255,255,255,.9)" stroke-width="1.4"/><circle cx="16" cy="14" r="5.5" fill="${c.dot}"/></g></svg>`;
+  return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
+}
+
+function createMarker(l, i) {
+  const marker = new google.maps.Marker({
+    position: { lat: l._lat, lng: l._lng }, map, title: l.name,
+    icon: { url: pinSVG(l.type), scaledSize: new google.maps.Size(32, 42), anchor: new google.maps.Point(16, 40) },
+    optimized: false,
+  });
+  marker.addListener('click', () => openListing(i, marker));
+  markers[i] = marker;
+  if (!matchesCategory(l.type, activeFilter)) marker.setMap(null);
+}
+
+function openListing(i, marker) {
+  const l = LISTINGS[i];
+  infoWindow.setContent(`
+    <div class="iw">
+      ${typeTag(l.type)}
+      <div class="iw-name">${esc(l.name)}</div>
+      <div class="iw-addr">${esc(l.address)}${l.city ? ' · ' + esc(l.city) : ''}</div>
+      <div class="iw-grid">
+        <div><small>Price / rate</small><b>${esc(l.price || '—')}</b></div>
+        <div><small>Size</small><b>${esc(l.size || '—')}</b></div>
+        <div><small>Use</small><b>${esc(l.use || '—')}</b></div>
+        <div><small>Zoning</small><b>${esc(l.zoning || '—')}</b></div>
+      </div>
+      ${l.highlights ? `<div class="iw-hi">${esc(l.highlights)}</div>` : ''}
+      ${l.broker ? `<div class="iw-broker">Broker: ${esc(l.broker)}</div>` : ''}
+      <a class="iw-btn" href="${esc(l.flyer)}" target="_blank" rel="noopener">View flyer (PDF)</a>
+    </div>`);
+  infoWindow.open(map, marker);
+  document.querySelectorAll('.lcard').forEach((c) => c.classList.remove('active'));
+  const card = document.getElementById(`card-${i}`);
+  card?.classList.add('active');
+  card?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+}
+
+function createCard(l, i) {
+  const card = document.createElement('div');
+  card.className = 'lcard'; card.dataset.type = l.type; card.id = `card-${i}`; card.tabIndex = 0;
+  card.innerHTML = `
+    ${typeTag(l.type)}
+    <div class="lname">${esc(l.name)}</div>
+    <div class="lcity">${esc(l.city || '')}</div>
+    <div class="lmeta">
+      <div><small>Price</small><b>${esc(l.price || '—')}</b></div>
+      <div><small>Size</small><b>${esc(l.size || '—')}</b></div>
+    </div>
+    ${l.broker ? `<div class="lbroker">${esc(l.broker)}</div>` : ''}`;
+  const go = () => {
+    if (!map || !markers[i]) { window.open(l.flyer, '_blank', 'noopener'); return; }
+    map.panTo({ lat: l._lat, lng: l._lng }); map.setZoom(16);
+    setTimeout(() => openListing(i, markers[i]), 300);
+  };
+  card.addEventListener('click', go);
+  card.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+  document.getElementById('cards').appendChild(card);
+}
+
+// "For Sale or Lease" counts under both filters.
+function matchesCategory(type, category) {
+  if (category === 'All') return true;
+  if (category === 'For Lease') return /lease/i.test(type);
+  if (category === 'For Sale') return /sale/i.test(type);
+  return false;
+}
+
+document.querySelectorAll('.pillbtn').forEach((pill) => {
+  pill.addEventListener('click', () => {
+    document.querySelectorAll('.pillbtn').forEach((p) => p.classList.remove('active'));
+    pill.classList.add('active');
+    activeFilter = pill.dataset.type;
+    let count = 0;
+    document.querySelectorAll('.lcard').forEach((card) => {
+      const i = parseInt(card.id.replace('card-', ''), 10);
+      const show = matchesCategory(card.dataset.type, activeFilter);
+      card.style.display = show ? '' : 'none';
+      if (markers[i]) markers[i].setMap(show ? map : null);
+      if (show) count++;
+    });
+    document.getElementById('vis-count').textContent = count;
+    document.getElementById('no-results').classList.toggle('show', count === 0);
+    if (infoWindow) infoWindow.close();
+  });
+});
+</script>
