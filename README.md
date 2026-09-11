@@ -20,12 +20,12 @@ Flyers live in the shared Google Drive folder "Flyers". Each entry's `flyer` lin
 
 ## Forms
 
-- Subscribe box: replace the placeholder form in `index.html` with the MailerLite embedded-form HTML.
-- Contact form: posts to a Google Form (`formResponse` URL + entry ids) once the form exists.
+- Subscribe box posts to the MailerLite "Email Subscriber" embedded form (account 746528, form 198341311600788702). Double opt-in is on, so people confirm by email before they appear in the "Website Subscriber" group.
+- Contact form posts to the Google Form "Tell us about the property or the requirement" through a hidden iframe. Responses appear in the form's Responses tab; turn on email notifications there to get each one in your inbox.
 
 ## Google Maps
 
-`listings.html` uses a Google Maps JavaScript API key. In Google Cloud, the key's HTTP-referrer allowlist must include `southatlanticsites.com/*`, `www.southatlanticsites.com/*`, and the GitHub Pages preview address.
+`listings.html` uses the Google Maps JavaScript API key from the original map. It works on southatlanticsites.github.io today. Before the custom domain goes live, add `southatlanticsites.com/*` and `www.southatlanticsites.com/*` to the key's HTTP-referrer allowlist in Google Cloud (APIs & Services → Credentials).
 
 ## Deploy
 

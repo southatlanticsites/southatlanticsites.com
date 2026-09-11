@@ -92,7 +92,23 @@
 <div class="brands" aria-label="Brands that trust us">
   <div class="wrap">
     <p class="eyebrow">Brands that trust us</p>
-    <span>Scooter's Coffee</span><span>Culver's</span><span>Primrose Schools</span><span>Enterprise</span><span>Royal Farms</span>
+    <ul class="logo-row">
+      <li><img src="img/brands/scooters-coffee.png" alt="Scooter's Coffee" loading="lazy"></li>
+      <li><img src="img/brands/primrose-schools.png" alt="Primrose Schools" loading="lazy"></li>
+      <li><img src="img/brands/burger-king.jpg" alt="Burger King" loading="lazy"></li>
+      <li><img src="img/brands/checkers.png" alt="Checkers" loading="lazy"></li>
+      <li><img src="img/brands/jeremiahs-italian-ice.svg" alt="Jeremiah's Italian Ice" loading="lazy"></li>
+      <li><img src="img/brands/academy.webp" alt="Academy Sports + Outdoors" loading="lazy"></li>
+      <li><img src="img/brands/drury-hotels.jpg" alt="Drury Hotels" loading="lazy"></li>
+      <li><img src="img/brands/vp-hotels.png" alt="VP Hotels" loading="lazy"></li>
+      <li><img src="img/brands/sweathouz.png" alt="Sweathouz" loading="lazy"></li>
+      <li><img src="img/brands/premier-pools-spas.png" alt="Premier Pools &amp; Spas" loading="lazy"></li>
+      <li><img src="img/brands/synergyvet.png" alt="SynergyVet" loading="lazy"></li>
+      <li><img src="img/brands/morse-clinics.png" alt="Morse Clinics" loading="lazy"></li>
+      <li><img src="img/brands/beauty-co.png" alt="Beauty Co" loading="lazy"></li>
+      <li><img src="img/brands/pure-soul.webp" alt="Pure Soul" loading="lazy"></li>
+      <li><img src="img/brands/shinjuku-station.png" alt="Shinjuku Station" loading="lazy"></li>
+    </ul>
   </div>
 </div>
 
@@ -162,11 +178,14 @@
         </div>
         <div class="subscribe">
           <p>Get new listings by email. One note when something hits the market, nothing else.</p>
-          <!-- MailerLite: replace this form with the embedded-form HTML from MailerLite (Forms → Embedded forms → HTML). Keep the input and button classes so the styling holds. -->
-          <form id="subscribe-form" onsubmit="event.preventDefault();this.querySelector('button').textContent='Subscribed';">
-            <input type="email" name="email" placeholder="you@company.com" aria-label="Email address" required>
+          <!-- Posts to the MailerLite "Email Subscriber" form (account 746528). Subscribers land in the "Website Subscriber" group after double opt-in. -->
+          <form id="subscribe-form" action="https://assets.mailerlite.com/jsonp/746528/forms/198341311600788702/subscribe" method="POST" target="ml-sink">
+            <input type="email" name="fields[email]" placeholder="you@company.com" aria-label="Email address" autocomplete="email" required>
+            <input type="hidden" name="ml-submit" value="1">
+            <input type="hidden" name="anticsrf" value="true">
             <button class="btn btn-gold" type="submit">Subscribe</button>
           </form>
+          <iframe name="ml-sink" title="Subscription" hidden></iframe>
         </div>
       </div>
       <!-- Posts straight into the "Tell us about the property or the requirement" Google Form; responses land in its Responses tab. -->

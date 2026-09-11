@@ -50,6 +50,32 @@
   });
 })();
 
+// Subscribe box: submits to MailerLite in the background and confirms in place.
+// Without JavaScript the form still posts normally through the hidden iframe.
+(function () {
+  const form = document.getElementById('subscribe-form');
+  if (!form) return;
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button');
+    const email = form.querySelector('input[type="email"]');
+    btn.disabled = true;
+    btn.textContent = 'Adding…';
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: new FormData(form) });
+      const data = await res.json();
+      if (!data.success) throw new Error('rejected');
+      form.innerHTML = '<p class="sent">Check your inbox to confirm, and you are on the list.</p>';
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = 'Subscribe';
+      email.setCustomValidity('That address was not accepted. Check it and try again.');
+      email.reportValidity();
+      email.addEventListener('input', () => email.setCustomValidity(''), { once: true });
+    }
+  });
+})();
+
 // Homepage: featured property cards from js/listings.js (entries with "featured": true).
 (function () {
   const grid = document.getElementById('featured');
