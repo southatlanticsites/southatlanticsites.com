@@ -14,7 +14,7 @@ Static site for South Atlantic Sites, hosted on GitHub Pages. No build step: edi
 
 ## Updating listings
 
-Every property is one entry in `js/listings.js`. To feature a property on the homepage, set `"featured": true` and give it an `img` (a photo in `img/listings/`). The homepage shows the first six featured entries. Remove an entry when a property sells or leases.
+Every property is one entry in `js/listings.js` and every entry has an `img` (a photo in `img/listings/`). The homepage shows all of them six at a time with arrows. Give an entry `"featured": 1` through `"featured": 6` to pin it to the first page in that order; the rest follow in file order. Remove an entry when a property sells or leases.
 
 Flyers live in the shared Google Drive folder "Flyers". Each entry's `flyer` link points at the PDF there, and `id` is the Drive file id. Drive serves a first-page preview of any flyer at `https://drive.google.com/thumbnail?id=FILE_ID&sz=w800`.
 

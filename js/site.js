@@ -76,7 +76,8 @@
   });
 })();
 
-// Homepage: featured property cards from js/listings.js (entries with "featured": true).
+// Homepage: property cards from js/listings.js, six at a time with arrows.
+// Entries with a "featured" number come first in that order; everything else follows in file order.
 (function () {
   const grid = document.getElementById('featured');
   if (!grid || typeof LISTINGS === 'undefined') return;
@@ -96,15 +97,14 @@
   const location = (l) => (/^\d/.test(l.name) || /^(NEC|NWC|SEC|SWC|NC-|Hwy|US)/i.test(l.name)) ? l.city : `${l.address}, ${l.city}`;
   const priceLabel = (l) => (/lease/i.test(l.type) && !/sale/i.test(l.type)) ? 'Rent' : 'Price';
 
-  const featured = LISTINGS.filter((l) => l.featured).slice(0, 6);
-  grid.innerHTML = featured.map((l) => {
+  const card = (l) => {
     const [cls, label] = pill(l.type);
+    const media = l.img
+      ? `<img src="${esc(l.img)}" alt="${esc(l.name)}, ${esc(l.city)}" loading="lazy" style="object-position:50% ${Number(l.crop ?? 21)}%">`
+      : '';
     return `
       <a class="card" href="${esc(l.flyer)}" target="_blank" rel="noopener">
-        <div class="card-media">
-          <img src="${esc(l.img)}" alt="${esc(l.name)}, ${esc(l.city)}" loading="lazy" style="object-position:50% ${Number(l.crop ?? 21)}%">
-          <span class="pill ${cls}">${label}</span>
-        </div>
+        <div class="card-media">${media}<span class="pill ${cls}">${label}</span></div>
         <div class="card-body">
           <h3>${esc(l.name)}</h3>
           <p class="loc">${esc(location(l))}</p>
@@ -115,7 +115,44 @@
           <p class="card-broker">${esc(l.broker)}</p>
         </div>
       </a>`;
-  }).join('');
+  };
+
+  const ordered = LISTINGS.slice().sort((a, b) => (a.featured || 99) - (b.featured || 99));
+  const PAGE = 6;
+  const pages = Math.max(1, Math.ceil(ordered.length / PAGE));
+  let page = 0;
+
+  const prev = document.getElementById('feat-prev');
+  const next = document.getElementById('feat-next');
+  const count = document.getElementById('feat-count');
+
+  function render() {
+    grid.innerHTML = ordered.slice(page * PAGE, page * PAGE + PAGE).map(card).join('');
+    if (prev) prev.disabled = page === 0;
+    if (next) next.disabled = page >= pages - 1;
+    if (count) count.textContent = `${page + 1} / ${pages}`;
+  }
+  function go(step) {
+    const target = Math.min(pages - 1, Math.max(0, page + step));
+    if (target === page) return;
+    page = target;
+    render();
+  }
+  if (prev) prev.addEventListener('click', () => go(-1));
+  if (next) next.addEventListener('click', () => go(1));
+  if (pages <= 1) { const p = document.querySelector('.pager'); if (p) p.hidden = true; }
+
+  // Swipe left or right on the cards to page on touch screens.
+  let touchX = null;
+  grid.addEventListener('touchstart', (e) => { touchX = e.changedTouches[0].clientX; }, { passive: true });
+  grid.addEventListener('touchend', (e) => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    touchX = null;
+    if (Math.abs(dx) > 60) go(dx < 0 ? 1 : -1);
+  }, { passive: true });
+
+  render();
 
   const n = LISTINGS.length;
   ['stat-count', 'all-count'].forEach((id) => { const e = document.getElementById(id); if (e) e.textContent = n; });

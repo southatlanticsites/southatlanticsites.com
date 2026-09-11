@@ -74,6 +74,13 @@ section{padding:clamp(64px,8vw,112px) 0}
 .sec-head .eyebrow{color:var(--muted);margin-bottom:14px}
 .more{font-weight:600;text-decoration:none;white-space:nowrap;border-bottom:2px solid var(--gold);padding-bottom:2px}
 .more:hover{border-bottom-color:var(--navy)}
+.sec-tools{display:flex;align-items:center;flex-wrap:wrap;gap:16px 28px}
+.pager{display:flex;align-items:center;gap:10px}
+.pager-btn{width:46px;height:46px;border-radius:50%;border:2px solid var(--navy);background:var(--white);color:var(--navy);display:grid;place-items:center;cursor:pointer;padding:0;transition:background .15s ease,color .15s ease,opacity .15s ease}
+.pager-btn svg{width:20px;height:20px}
+.pager-btn:hover:not(:disabled){background:var(--navy);color:var(--white)}
+.pager-btn:disabled{opacity:.28;cursor:default}
+.pager-count{font-variant-numeric:tabular-nums;font-weight:600;font-size:.9rem;color:var(--muted);min-width:3.4em;text-align:center}
 
 /* Featured properties */
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
@@ -113,10 +120,7 @@ section{padding:clamp(64px,8vw,112px) 0}
 .brands .eyebrow{color:var(--muted);text-align:center;margin-bottom:28px}
 .logo-row{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:28px clamp(28px,4vw,56px)}
 .logo-row img{height:46px;width:auto;max-width:150px;object-fit:contain;filter:grayscale(1);opacity:.7;transition:filter .2s ease,opacity .2s ease}
-.logo-row li:hover img{filter:none;opacity:1}
-/* Logos drawn in white for dark backgrounds: render as a solid silhouette so they read on white. */
-.logo-row li.flat img,.logo-row li.flat:hover img{filter:brightness(0)}
-@media (max-width:640px){
+.logo-row li:hover img{filter:none;opacity:1}@media (max-width:640px){
   .logo-row{gap:22px 28px}
   .logo-row img{height:36px;max-width:120px}
 }

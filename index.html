@@ -45,7 +45,14 @@
         <p class="eyebrow">Featured properties</p>
         <h2>On the market now.</h2>
       </div>
-      <a class="more" href="listings.html">View all <span id="all-count">22</span> on the map</a>
+      <div class="sec-tools">
+        <a class="more" href="listings.html">View all <span id="all-count">22</span> on the map</a>
+        <div class="pager" aria-label="Browse listings">
+          <button class="pager-btn" id="feat-prev" type="button" aria-label="Previous listings" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+          <span class="pager-count" id="feat-count" aria-live="polite">1 / 4</span>
+          <button class="pager-btn" id="feat-next" type="button" aria-label="Next listings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
     </div>
     <div class="grid" id="featured"></div>
   </div>
@@ -100,7 +107,7 @@
       <li><img src="img/brands/royal-farms.webp" alt="Royal Farms" loading="lazy"></li>
       <li><img src="img/brands/burger-king.jpg" alt="Burger King" loading="lazy"></li>
       <li><img src="img/brands/hutton.svg" alt="Hutton" loading="lazy"></li>
-      <li class="flat"><img src="img/brands/parkway.png" alt="Parkway" loading="lazy"></li>
+      <li><img src="img/brands/parkway.png" alt="Parkway" loading="lazy"></li>
       <li><img src="img/brands/creighton.png" alt="Creighton Construction &amp; Development" loading="lazy"></li>
       <li><img src="img/brands/total-wireless.webp" alt="Total Wireless" loading="lazy"></li>
       <li><img src="img/brands/academy.webp" alt="Academy Sports + Outdoors" loading="lazy"></li>
@@ -128,7 +135,7 @@
     </div>
     <div class="team">
       <div class="person">
-        <img src="img/team/mike.png" alt="Mike Wilen">
+        <picture><source srcset="img/team/mike.avif" type="image/avif"><img src="img/team/mike.png" alt="Mike Wilen"></picture>
         <h3>Mike Wilen</h3>
         <p class="role">President</p>
         <p>Founder of South Atlantic Sites. Over a decade of commercial advisory, from his first client, a 50-plus-unit Burger King franchisee, to land brokerage and retail tenant representation across the region. University of Michigan; active in ULI and ICSC.</p>
