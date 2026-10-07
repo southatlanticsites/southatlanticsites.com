@@ -25,10 +25,29 @@ Flyers live in the shared Google Drive folder "Flyers". Each entry's `flyer` lin
 
 ## Google Maps
 
-`listings.html` uses the Google Maps JavaScript API key from the original map. It works on southatlanticsites.github.io today. Before the custom domain goes live, add `southatlanticsites.com/*` and `www.southatlanticsites.com/*` to the key's HTTP-referrer allowlist in Google Cloud (APIs & Services → Credentials).
+`listings.html` uses the "New Maps Platform API Key" in the Google Cloud project "South Atlantic Sites Listings" (APIs & Services → Credentials). Its application restriction is set to None, so it works on any domain. If you ever restrict it to specific websites, list every site that uses the key (this site and the older property map on github.io included), or the maps on the sites left out will stop loading.
 
 ## Deploy
 
-1. Push to the `main` branch of the `southatlanticsites/southatlanticsites.com` repository.
-2. Repo → Settings → Pages → Source: Deploy from a branch → `main`, `/ (root)`.
-3. When ready to go live: add a `CNAME` file containing `www.southatlanticsites.com`, then at name.com set four A records for `@` (185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153) and a CNAME for `www` → `southatlanticsites.github.io`. Leave the MX and TXT records for Google Workspace untouched. Turn on "Enforce HTTPS" in the Pages settings once the certificate is issued.
+Push to the `main` branch of the `southatlanticsites/southatlanticsites.com` repository. GitHub Pages rebuilds in about a minute.
+
+- Pages source: Deploy from a branch → `main`, `/ (root)`.
+- Custom domain: `www.southatlanticsites.com`, set by the `CNAME` file in this repo. Don't delete that file.
+- Enforce HTTPS is on, so `http://` visits redirect to `https://`.
+
+Live since October 6, 2026. The previous site was on Wix.
+
+## Domain and DNS
+
+The domain is registered at name.com, and DNS is hosted there on name.com's default nameservers. Manage records at name.com → southatlanticsites.com → Manage DNS Records.
+
+| Type | Host | Value | Purpose |
+|---|---|---|---|
+| A ×4 | @ | 185.199.108.153, .109.153, .110.153, .111.153 | GitHub Pages |
+| CNAME | www | southatlanticsites.github.io | GitHub Pages |
+| MX | @ | smtp.google.com (priority 1) | Google Workspace mail |
+| TXT | @ | `v=spf1 include:_spf.google.com include:_spf.mlsend.com ~all` | SPF for Gmail and MailerLite |
+| TXT | google._domainkey | `v=DKIM1; k=rsa; p=…` | Gmail DKIM (key generated in Google Admin → Apps → Gmail → Authenticate email) |
+| CNAME | litesrv._domainkey | litesrv._domainkey.mlsend.com | MailerLite DKIM |
+
+If you add another service that sends email as @southatlanticsites.com, add its `include:` to the SPF record rather than creating a second SPF record.
