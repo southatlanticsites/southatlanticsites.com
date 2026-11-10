@@ -21,6 +21,26 @@
   "lat": 35.706827,
   "lng": -78.837272,
   "tool": true
+ },
+ {
+  "name": "SEC Clayton Blvd (US-70 Bus) & Gordon Rd",
+  "address": "SEC Clayton Blvd (US-70 Bus) & Gordon Rd",
+  "city": "Clayton, NC 27520",
+  "type": "For Sale or Ground Lease",
+  "price": "Sale Price: $1M/AC | Ground Lease: $90K/AC/yr",
+  "size": "4.6 AC",
+  "zoning": "CRM (Corridor Commercial)",
+  "available": "Available",
+  "use": "Retail",
+  "broker": "Mike Wilen",
+  "highlights": "±4.6 AC Retail Land · Divisible. Signalized hard corner on Clayton Blvd. Traffic: 22,000 VPD Clayton Blvd | 2,000 VPD Gordon Rd. Frontage: ±800' Clayton Blvd | ±225' Gordon Rd | Wise Rd",
+  "flyer": "https://www.southatlanticsites.com/listings/clayton-blvd-gordon-rd-clayton/",
+  "page": "https://www.southatlanticsites.com/listings/clayton-blvd-gordon-rd-clayton/",
+  "img": "https://www.southatlanticsites.com/listings/clayton-blvd-gordon-rd-clayton/img/photo-1.jpg",
+  "crop": 50,
+  "lat": 35.607335,
+  "lng": -78.415473,
+  "tool": true
  }
 ];
   if (typeof LISTINGS === "undefined" || !Array.isArray(LISTINGS)) return;
