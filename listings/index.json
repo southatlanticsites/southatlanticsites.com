@@ -1,0 +1,41 @@
+{
+  "updated": "2026-11-10T17:18:26.941Z",
+  "count": 1,
+  "listings": [
+    {
+      "url": "https://www.southatlanticsites.com/listings/1548-e-williams-st-apex/",
+      "title": "6.10 Acres with NC 55 Frontage",
+      "address": "1548 E Williams St",
+      "city": "Apex, NC 27539",
+      "offering": "For Sale",
+      "status": "Available",
+      "type": "Land",
+      "price": "Sale Price: Negotiable",
+      "size": "6.1 Acres",
+      "photo": "https://www.southatlanticsites.com/listings/1548-e-williams-st-apex/img/photo-1.jpg",
+      "flyer": "https://www.southatlanticsites.com/listings/1548-e-williams-st-apex/1548-e-williams-st-apex-flyer.pdf",
+      "updated": "2026-11-10T17:18:26.941Z",
+      "card": {
+        "name": "1548 E Williams St",
+        "address": "1548 E Williams St",
+        "city": "Apex, NC 27539",
+        "type": "For Sale",
+        "price": "Negotiable",
+        "size": "6.10 AC",
+        "zoning": "Planned Commercial Conditional Zoning (PC-CZ)",
+        "available": "Available",
+        "use": "Land",
+        "broker": "Cameron Wilson",
+        "highlights": "±6.1 AC Commercial Land · PC-CZ. Zoning: Planned Commercial Conditional Zoning (PC-CZ). Utilities: planned sewer from adjacent property; all others at site. Frontage: ~600' on NC-55",
+        "flyer": "https://www.southatlanticsites.com/listings/1548-e-williams-st-apex/",
+        "page": "https://www.southatlanticsites.com/listings/1548-e-williams-st-apex/",
+        "img": "https://www.southatlanticsites.com/listings/1548-e-williams-st-apex/img/photo-1.jpg",
+        "crop": 50,
+        "lat": 35.706827,
+        "lng": -78.837272,
+        "tool": true
+      },
+      "slug": "1548-e-williams-st-apex"
+    }
+  ]
+}
