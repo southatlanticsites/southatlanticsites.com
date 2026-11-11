@@ -27,7 +27,7 @@
   "address": "SEC Clayton Blvd (US-70 Bus) & Gordon Rd",
   "city": "Clayton, NC 27520",
   "type": "For Sale or Ground Lease",
-  "price": "Sale Price: $1M/AC | Ground Lease: $90K/AC/yr",
+  "price": "Sale Price: $1M/AC | Ground Lease: Negotiable",
   "size": "4.6 AC",
   "zoning": "CRM (Corridor Commercial)",
   "available": "Available",
