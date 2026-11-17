@@ -23,6 +23,26 @@
   "tool": true
  },
  {
+  "name": "5326 US Hwy 70 Business",
+  "address": "5326 US Hwy 70 Business",
+  "city": "Clayton, NC 27520",
+  "type": "For Sale or Lease",
+  "price": "Sale Price: $1,600,000 | Lease: Call for Pricing",
+  "size": "3.39 AC",
+  "zoning": "GB",
+  "available": "Available",
+  "use": "Land",
+  "broker": "Cameron Wilson",
+  "highlights": "Self-storage site with approved plans. 19,500 VPD on US 70 Business (NCDOT 2024). 23,000 VPD on nearby US 70 (NCDOT 2024)",
+  "flyer": "https://www.southatlanticsites.com/listings/5326-us-hwy-70-business-clayton/",
+  "page": "https://www.southatlanticsites.com/listings/5326-us-hwy-70-business-clayton/",
+  "img": "",
+  "crop": 50,
+  "lat": 35.587683,
+  "lng": -78.405239,
+  "tool": true
+ },
+ {
   "name": "SEC Clayton Blvd (US-70 Bus) & Gordon Rd",
   "address": "SEC Clayton Blvd (US-70 Bus) & Gordon Rd",
   "city": "Clayton, NC 27520",

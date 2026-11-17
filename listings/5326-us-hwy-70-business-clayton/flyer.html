@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Approved Self-Storage Site on US 70 Business | Flyer | South Atlantic Sites</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+<style>
+  @page { size: Letter; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #fff; }
+  body { font-family: Poppins, "Segoe UI", Arial, sans-serif; color: #0a2540; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .pg { width: 816px; height: 1056px; position: relative; overflow: hidden; break-after: page; page-break-after: always; background: #fff; }
+  .pg:last-child { break-after: auto; page-break-after: auto; }
+
+  /* Header */
+  .hd { position: absolute; left: 0; top: 0; width: 816px; height: 127px; background: #00274C; color: #fff; overflow: hidden; }
+  .hd .art { position: absolute; right: 0; top: 0; height: 127px; }
+  .hd .t { position: absolute; left: 10px; top: 7px; width: 470px; line-height: 1.17; }
+  .hd .l1 { font-size: 25.5px; font-weight: 800; font-style: italic; text-transform: uppercase; letter-spacing: .2px; white-space: nowrap; }
+  .hd .l2 { font-size: 19.5px; font-weight: 700; font-style: italic; text-transform: uppercase; margin-top: 3px; white-space: nowrap; }
+  .hd .l3 { font-size: 16px; font-weight: 600; margin-top: 1px; white-space: nowrap; }
+  .hd .tag { display: inline-block; background: #FFCB05; color: #00274C; font-style: normal; font-size: 13px; letter-spacing: .5px; padding: 2px 8px; border-radius: 3px; vertical-align: 4px; margin-right: 8px; }
+
+  /* Footer */
+  .chev { position: absolute; left: 0; top: 896px; width: 118px; }
+  .contact { position: absolute; right: 8px; top: 931px; height: 66px; display: flex; align-items: center; font-size: 12px; }
+  .contact .ask { width: 158px; text-align: center; font-weight: 700; font-size: 13.6px; line-height: 1.3; padding-right: 12px; border-right: 1px solid #8a97a8; height: 58px; display: flex; align-items: center; justify-content: center; }
+  .contact .who { padding-left: 14px; line-height: 1.55; }
+  .contact .who b { font-weight: 600; }
+  .contact .who + .who { border-left: 1px solid #d5dbe3; margin-left: 12px; }
+  .bar { position: absolute; left: 0; bottom: 0; width: 816px; height: 50px; background: #00274C; color: #fff; display: flex; align-items: center; font-size: 11.4px; }
+  .bar div { flex: 1; text-align: center; border-left: 1px solid #6d7f96; height: 22px; line-height: 22px; white-space: nowrap; }
+  .bar div:first-child { border-left: 0; flex: 1.25; }
+  .disc { position: absolute; left: 132px; right: 16px; top: 902px; font-size: 7.2px; line-height: 1.35; color: #6a7686; }
+  .disc + .contact { top: 941px; }
+
+  /* Page 1 */
+  .p1img { position: absolute; left: 8px; top: 136px; width: 446px; height: 758px; }
+  .p1txt { position: absolute; left: 468px; top: 143px; width: 340px; height: 745px; overflow: hidden; }
+  .p1wide { position: absolute; left: 8px; top: 136px; width: 800px; height: 400px; }
+  .p1cols { position: absolute; left: 16px; right: 16px; top: 552px; height: 336px; overflow: hidden; column-count: 2; column-gap: 28px; }
+  .sec { break-inside: avoid; margin-bottom: 24px; }
+  .sec h2 { font-size: 1.28em; font-weight: 700; text-transform: uppercase; letter-spacing: .2px; margin: 0 0 6px; color: #0a2540; }
+  .sec ul { list-style: none; margin: 0; padding: 0; }
+  .sec li { position: relative; padding-left: 24px; line-height: 1.72; }
+  .sec li::before { content: ""; position: absolute; left: 8px; top: .78em; width: 4.5px; height: 4.5px; border-radius: 50%; background: currentColor; }
+  .sec p { margin: 0 0 8px; line-height: 1.6; }
+  .fit { font-size: 13.8px; }
+
+  /* Pictures that can be panned and zoomed inside their frame */
+  .crop { overflow: hidden; }
+  .crop > img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .zi { transform: translate(var(--ix, 0px), var(--iy, 0px)) scale(var(--iz, 1)); transform-origin: center; }
+
+  /* Inside pages */
+  .ttl { position: absolute; left: 0; top: 140px; width: 816px; text-align: center; font-size: 30px; font-weight: 800; font-style: italic; text-transform: uppercase; letter-spacing: .4px; line-height: 1.15; }
+  .fig { position: absolute; left: 17px; top: 202px; width: 782px; height: 688px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .fig > img { max-width: 100%; max-height: 100%; display: block; }
+  .fig .ov { position: relative; display: inline-block; max-width: 100%; max-height: 100%; }
+  .fig .ov img { max-width: 782px; max-height: 688px; display: block; }
+  .fig .ov .bs { position: absolute; left: 8px; bottom: 8px; z-index: 2; }
+  .shots { position: absolute; left: 17px; top: 202px; width: 782px; height: 688px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-content: center; }
+  .shots figure { margin: 0; }
+  .shots .crop { width: 100%; height: 300px; }
+  .shots figcaption { font-size: 11px; color: #42566d; margin-top: 4px; text-align: center; }
+
+  /* Tables (Business Summary, Demographics) */
+  table.t { border-collapse: collapse; background: #fff; font-size: 12px; }
+  table.t th { background: #00274C; color: #fff; font-weight: 700; padding: 6px 12px; text-transform: uppercase; font-size: 11.4px; text-align: center; white-space: nowrap; }
+  table.t th:first-child, table.t td:first-child { text-align: left; }
+  table.t td { padding: 6px 12px; text-align: center; font-weight: 500; border-bottom: 1px solid #d5dbe3; }
+  table.t td:first-child { font-weight: 700; }
+  .src { font-size: 8px; font-style: italic; color: #4b5b6e; background: #fff; padding: 2px 12px 3px; }
+  .demo { position: absolute; left: 17px; top: 206px; width: 782px; }
+  .demo table.t { width: 100%; font-size: 13px; }
+  .demo table.t th, .demo table.t td { padding: 9px 14px; }
+  .demo .src { padding-left: 0; margin-bottom: 22px; }
+
+  /* Text boxes added in the flyer editor */
+  .fbox { position: absolute; z-index: 6; font-size: 16px; font-weight: 700; line-height: 1.3; color: #00274C; white-space: pre-wrap; padding: 4px 8px; border-radius: 3px; }
+</style>
+</head><body>
+<section class="pg" data-page="cover"><div class="hd" data-fe="hd"><img class="art" data-fe="hd.art" src="img/flyer-header.jpg" alt="South Atlantic Sites">
+    <div class="t" data-fe="hd.t"><div class="l1"><span data-fe="hd.status" data-fet>For Sale or Lease</span></div>
+    <div class="l2" data-fe="hd.l2" data-fet>±3.39 AC Land</div><div class="l3" data-fe="hd.street" data-fet>5326 US Hwy 70 Business</div><div class="l3" data-fe="hd.city" data-fet>Clayton, NC 27520</div></div></div><div class="p1img crop" data-fe="cover.img"><img class="zi" src="img/map-site.jpg" alt=""></div><div class="p1txt fit" data-fe="cover.words"><div class="sec" data-fe="cover.summary"><h2 data-fe="cover.summary.h" data-fet>Offering Summary</h2><ul><li data-fe="cover.summary.0" data-fet>Address: 5326 US Hwy 70 Business, Clayton, NC</li><li data-fe="cover.summary.1" data-fet>Size: ±3.39 AC</li><li data-fe="cover.summary.2" data-fet>Pricing: Sale Price: $1,600,000 | Lease Rate: Call for Pricing</li><li data-fe="cover.summary.3" data-fet>Zoning: GB</li></ul></div><div class="sec" data-fe="cover.highlights"><h2 data-fe="cover.highlights.h" data-fet>Property Highlights</h2><ul><li data-fe="cover.highlights.0" data-fet>Self-storage site with approved plans</li><li data-fe="cover.highlights.1" data-fet>19,500 VPD on US 70 Business (NCDOT 2024)</li><li data-fe="cover.highlights.2" data-fet>23,000 VPD on nearby US 70 (NCDOT 2024)</li><li data-fe="cover.highlights.3" data-fet>Approved plan set available to qualified buyers</li><li data-fe="cover.highlights.4" data-fet>Growing Clayton / Johnston County trade area</li></ul></div><div class="sec" data-fe="cover.location"><h2 data-fe="cover.location.h" data-fet>Location Description</h2><ul><li data-fe="cover.location.0" data-fet>On US 70 Business in Clayton, Johnston County</li><li data-fe="cover.location.1" data-fet>Wilders: 2026 permits for a private school, retail and apartments</li><li data-fe="cover.location.2" data-fet>McAlister Creek: 48-home subdivision announced by a national builder</li><li data-fe="cover.location.3" data-fet>23,000 VPD on nearby US 70 (NCDOT 2024)</li><li data-fe="cover.location.4" data-fet>Corridor links Clayton with Smithfield and the Raleigh area</li></ul></div></div>
+    <img class="chev" data-fe="ft.chev" src="img/flyer-chevrons.png" alt="">
+    
+    <div class="contact" data-fe="ft.contact"><div class="ask" data-fe="ft.ask" data-fet>Interested?<br>Contact us for more<br>information</div>
+      <div class="who" data-fe="ft.who0" data-fet><b>Cameron Wilson</b>, Broker<br>cam@southatlanticsites.com<br>919-706-3619</div></div>
+    <div class="bar" data-fe="ft.bar"><div data-fe="ft.bar0" data-fet>150 Fayetteville St, Ste. 300</div><div data-fe="ft.bar1" data-fet>Raleigh, NC 27601</div><div data-fe="ft.bar2" data-fet>9197063619</div><div data-fe="ft.bar3" data-fet>www.southatlanticsites.com</div></div></section>
+<section class="pg" data-page="dev"><div class="hd" data-fe="hd"><img class="art" data-fe="hd.art" src="img/flyer-header.jpg" alt="South Atlantic Sites">
+    <div class="t" data-fe="hd.t"><div class="l1"><span data-fe="hd.status" data-fet>For Sale or Lease</span></div>
+    <div class="l2" data-fe="hd.l2" data-fet>±3.39 AC Land</div><div class="l3" data-fe="hd.street" data-fet>5326 US Hwy 70 Business</div><div class="l3" data-fe="hd.city" data-fet>Clayton, NC 27520</div></div></div><div class="ttl" data-fe="dev.ttl" data-fet>Surrounding Development</div><div class="fig" data-fe="dev.map"><img class="zi" src="img/map-dev.jpg" alt=""></div>
+    <img class="chev" data-fe="ft.chev" src="img/flyer-chevrons.png" alt="">
+    
+    <div class="contact" data-fe="ft.contact"><div class="ask" data-fe="ft.ask" data-fet>Interested?<br>Contact us for more<br>information</div>
+      <div class="who" data-fe="ft.who0" data-fet><b>Cameron Wilson</b>, Broker<br>cam@southatlanticsites.com<br>919-706-3619</div></div>
+    <div class="bar" data-fe="ft.bar"><div data-fe="ft.bar0" data-fet>150 Fayetteville St, Ste. 300</div><div data-fe="ft.bar1" data-fet>Raleigh, NC 27601</div><div data-fe="ft.bar2" data-fet>9197063619</div><div data-fe="ft.bar3" data-fet>www.southatlanticsites.com</div></div></section>
+<section class="pg" data-page="demo"><div class="hd" data-fe="hd"><img class="art" data-fe="hd.art" src="img/flyer-header.jpg" alt="South Atlantic Sites">
+    <div class="t" data-fe="hd.t"><div class="l1"><span data-fe="hd.status" data-fet>For Sale or Lease</span></div>
+    <div class="l2" data-fe="hd.l2" data-fet>±3.39 AC Land</div><div class="l3" data-fe="hd.street" data-fet>5326 US Hwy 70 Business</div><div class="l3" data-fe="hd.city" data-fet>Clayton, NC 27520</div></div></div><div class="ttl" data-fe="demo.ttl" data-fet>Demographics</div>
+      <div class="demo" data-fe="demo.tables"><table class="t "><thead><tr><th>Trade Area Demographics</th><th>5 Min Drive</th><th>10 Min Drive</th><th>20 Min Drive</th></tr></thead>
+    <tbody><tr><td>Population</td><td>4,593</td><td>49,696</td><td>225,481</td></tr><tr><td>Households</td><td>1,626</td><td>18,171</td><td>81,980</td></tr><tr><td>Household Median Income</td><td>$121,368</td><td>$104,692</td><td>$118,665</td></tr><tr><td>Household Average Income</td><td>$144,787</td><td>$127,155</td><td>$142,660</td></tr><tr><td>Median Age</td><td>42.5</td><td>40.5</td><td>40.4</td></tr></tbody></table><div class="src">Source: Placer.ai (Placer Labs Inc.), STI: Popstats (Template: 2030 Projection), Nov 1, 2025 - Oct 31, 2026. Data provided by Placer Labs Inc. (www.placer.ai).</div><table class="t "><thead><tr><th>Visitor Profile</th><th>Visitors</th></tr></thead>
+    <tbody><tr><td>Visitor Average Household Income</td><td>$119K</td></tr><tr><td>Visitor Median Household Income</td><td>$84K</td></tr></tbody></table><div class="src">Source: Placer.ai (Placer Labs Inc.), Census 2024 (True Trade Area capturing 70% of visits), Nov 1, 2025 - Oct 31, 2026. Data provided by Placer Labs Inc. (www.placer.ai).</div></div>
+    <img class="chev" data-fe="ft.chev" src="img/flyer-chevrons.png" alt="">
+    <div class="disc" data-fe="ft.disc" data-fet>The information contained herein was obtained from sources believed reliable; however, South Atlantic Sites makes no guarantees, warranties or representations as to its completeness or accuracy. Offering subject to errors, omissions, change of price or terms, prior sale or lease, or withdrawal without notice.</div>
+    <div class="contact" data-fe="ft.contact"><div class="ask" data-fe="ft.ask" data-fet>Interested?<br>Contact us for more<br>information</div>
+      <div class="who" data-fe="ft.who0" data-fet><b>Cameron Wilson</b>, Broker<br>cam@southatlanticsites.com<br>919-706-3619</div></div>
+    <div class="bar" data-fe="ft.bar"><div data-fe="ft.bar0" data-fet>150 Fayetteville St, Ste. 300</div><div data-fe="ft.bar1" data-fet>Raleigh, NC 27601</div><div data-fe="ft.bar2" data-fet>9197063619</div><div data-fe="ft.bar3" data-fet>www.southatlanticsites.com</div></div></section>
+<script>
+  function fit() {
+    document.querySelectorAll(".hd .l1, .hd .l2, .hd .l3").forEach(function (el) {
+      if (el.dataset.fs || el.querySelector("[data-fs]")) return;
+      var max = el.parentNode.clientWidth || 470;
+      el.style.fontSize = "";
+      var s = parseFloat(getComputedStyle(el).fontSize);
+      while (el.scrollWidth > max && s > 10) { s -= .5; el.style.fontSize = s + "px"; }
+    });
+    document.querySelectorAll(".fit").forEach(function (el) {
+      if (el.dataset.fs) return;
+      var s = 13.8;
+      el.style.fontSize = s + "px";
+      while ((el.scrollHeight > el.clientHeight + 1 || el.scrollWidth > el.clientWidth + 1) && s > 8.5) { s -= .3; el.style.fontSize = s + "px"; }
+    });
+  }
+  window.fit = fit;
+  fit();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+</script>
+</body></html>

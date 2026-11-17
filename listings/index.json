@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-11T18:01:42.492Z",
-  "count": 2,
+  "updated": "2026-11-17T17:34:56.945Z",
+  "count": 3,
   "listings": [
     {
       "url": "https://www.southatlanticsites.com/listings/1548-e-williams-st-apex/",
@@ -36,6 +36,41 @@
         "tool": true
       },
       "slug": "1548-e-williams-st-apex"
+    },
+    {
+      "url": "https://www.southatlanticsites.com/listings/5326-us-hwy-70-business-clayton/",
+      "title": "Approved Self-Storage Site on US 70 Business",
+      "address": "5326 US Hwy 70 Business",
+      "city": "Clayton, NC 27520",
+      "offering": "For Sale or Lease",
+      "status": "Available",
+      "type": "Land",
+      "price": "Sale Price: $1,600,000 · Lease Rate: Call for Pricing",
+      "size": "3.39 Acres",
+      "photo": "",
+      "flyer": "https://www.southatlanticsites.com/listings/5326-us-hwy-70-business-clayton/5326-us-hwy-70-business-clayton-flyer.pdf",
+      "updated": "2026-11-17T17:34:56.945Z",
+      "card": {
+        "name": "5326 US Hwy 70 Business",
+        "address": "5326 US Hwy 70 Business",
+        "city": "Clayton, NC 27520",
+        "type": "For Sale or Lease",
+        "price": "Sale Price: $1,600,000 | Lease: Call for Pricing",
+        "size": "3.39 AC",
+        "zoning": "GB",
+        "available": "Available",
+        "use": "Land",
+        "broker": "Cameron Wilson",
+        "highlights": "Self-storage site with approved plans. 19,500 VPD on US 70 Business (NCDOT 2024). 23,000 VPD on nearby US 70 (NCDOT 2024)",
+        "flyer": "https://www.southatlanticsites.com/listings/5326-us-hwy-70-business-clayton/",
+        "page": "https://www.southatlanticsites.com/listings/5326-us-hwy-70-business-clayton/",
+        "img": "",
+        "crop": 50,
+        "lat": 35.587683,
+        "lng": -78.405239,
+        "tool": true
+      },
+      "slug": "5326-us-hwy-70-business-clayton"
     },
     {
       "url": "https://www.southatlanticsites.com/listings/clayton-blvd-gordon-rd-clayton/",
